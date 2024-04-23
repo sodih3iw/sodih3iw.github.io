@@ -18,7 +18,7 @@
     padding: 15px;
 }
 
-ul.navigationBar{
+ul.topnav{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -30,11 +30,11 @@ ul.navigationBar{
     overflow: hidden;
 }
 
-.navigationBar li {
+.topnav li {
     float: left;
 }
 
-.navigationBar li a {
+.topnav li a {
     display: block;
     color: #666;
     text-align: center;
@@ -42,11 +42,11 @@ ul.navigationBar{
     text-decoration: none;
 }
 
-.navigationBar li a:hover:not(.active) {
+.topnav li a:hover:not(.active) {
     background-color: #d8d8d8;
 }
 
-.navigationBar li a.active {
+.topnav li a.active {
     color: #003d3d;
     background-color: #00ffff;
 }
@@ -116,3 +116,9 @@ p.active {
 .col-10 {width: 83.33%;}
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
+
+@media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
