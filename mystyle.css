@@ -53,7 +53,7 @@ ul.topnav{
 
 p.tips {
     padding:20px 20px; 
-	width:80%;
+	width:70%;
 	border-radius:15px;
     color: #3b2e58;
     background-color: #efd9fd;
@@ -61,7 +61,7 @@ p.tips {
 
 p.warning {
 	padding:20px 20px; 
-	width:80%;
+	width:70%;
 	border-radius:15px;
     color: #6a4b16;
     background-color: #fff4ce;
@@ -69,7 +69,7 @@ p.warning {
 
 p.active {
     padding:20px 20px; 
-	width:80%;
+	width:70%;
 	border-radius:15px;
     color: #00330e;
     background-color: #cefc97;
@@ -104,21 +104,41 @@ p.active {
     background-color: #efcbcb;
 }
 
-.col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;}
-.col-3 {width: 25%;}
-.col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;}
+.footer {
+    background-color: #c6c7ff;
+    color: #444558;
+    text-align: center;
+    font-weight:lighter;
+    padding: 10px;
+}
 
-@media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
+.col-1 {width: 10%;}
+.col-2 {width: 80%;}
+.col-3 {width: 100%;}
+
+@media all and (max-width: 900px) {
+    .col-1 {
+        width: 20%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    p.tips {
+        width:100%;
+    }
+    
+    p.warning {
+        width:100%;
+    }
+    
+    p.active {
+        width:100%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .topnav a {
+        float: none;
+        width: 100%;
     }
   }
