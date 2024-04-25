@@ -44,6 +44,11 @@ ul.topnav{
 
 .topnav li a:hover:not(.active) {
     background-color: #d8d8d8;
+    font-weight:bold;
+}
+
+.topnav li a:hover.active {
+    background-color: #00e9e9;
 }
 
 .topnav li a.active {
@@ -100,16 +105,16 @@ p.active {
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.sidebar li:hover {
-    background-color: #efcbcb;
-}
-
 .footer {
     background-color: #c6c7ff;
     color: #444558;
     text-align: center;
     font-weight:lighter;
     padding: 10px;
+}
+
+.row {
+    margin-top:20px
 }
 
 .col-1 {width: 10%;}
@@ -126,19 +131,32 @@ p.active {
     p.tips {
         width:100%;
     }
-    
     p.warning {
         width:100%;
     }
-    
     p.active {
         width:100%;
     }
 }
 
-@media screen and (max-width: 400px) {
-    .topnav a {
+@media all and (max-width: 450px) {
+    .topnav li {
         float: none;
         width: 100%;
     }
-  }
+    .topnav li a.active {
+        color: #000000;
+        font-weight:bold;
+        font-size:150%;
+        padding: 8px;
+    }
+    .topnav li a:not(.active) {
+        display:none;
+    }
+    .col-1 ul{
+        display:none;
+    }
+    .col-1 {
+        width: 0%;
+    }
+}
