@@ -80,6 +80,10 @@ p.active {
     background-color: #cefc97;
 }
 
+.sidebar {
+    position: fixed;
+}
+
 .sidebar a {
     display: block;
     font-weight:bold;
@@ -113,18 +117,9 @@ p.active {
     padding: 10px;
 }
 
-.row {
-    margin-top:20px
-}
-
-.col-1 {width: 10%;}
-.col-2 {width: 80%;}
-.col-3 {width: 100%;}
-
-@media all and (max-width: 900px) {
-    .col-1 {
-        width: 20%;
-    }
+.col {
+    margin-top:60px;
+    margin-left:70px;
 }
 
 @media all and (max-width: 800px) {
@@ -140,6 +135,10 @@ p.active {
 }
 
 @media all and (max-width: 450px) {
+    .sidebar {
+        margin:0;
+        display:none;
+    }
     .topnav li {
         float: none;
         width: 100%;
@@ -153,10 +152,7 @@ p.active {
     .topnav li a:not(.active) {
         display:none;
     }
-    .col-1 ul{
-        display:none;
-    }
-    .col-1 {
-        width: 0%;
+    .col {
+        margin-left:0px;
     }
 }
