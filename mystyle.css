@@ -122,7 +122,7 @@ p.active {
     margin-left:70px;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: 700px) {
     p.tips {
         width:100%;
     }
