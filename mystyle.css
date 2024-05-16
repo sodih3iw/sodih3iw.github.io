@@ -40,9 +40,11 @@ ul.topnav{
 
 .topnav li a:hover:not(.active) {
     background-color: #d8d8d8;
-    font-weight:bold;
 }
 
+.topnav li a:hover {
+    font-weight: bold;
+}
 .topnav li a:hover.active {
     background-color: #00e9e9;
 }
@@ -52,26 +54,32 @@ ul.topnav{
     background-color: #00ffff;
 }
 
+.topnav li img.icon {
+    float: right;
+    display: block;
+    display: none;
+}
+
 p.tips {
-    padding:20px 20px; 
-	width:70%;
-	border-radius:15px;
+    padding: 20px 20px; 
+	width: 70%;
+	border-radius: 15px;
     color: #3b2e58;
     background-color: #efd9fd;
 }
 
 p.warning {
-	padding:20px 20px; 
-	width:70%;
-	border-radius:15px;
+	padding: 20px 20px; 
+	width: 70%;
+	border-radius: 15px;
     color: #6a4b16;
     background-color: #fff4ce;
 }
 
 p.active {
-    padding:20px 20px; 
-	width:70%;
-	border-radius:15px;
+    padding: 20px 20px; 
+	width: 70%;
+	border-radius: 15px;
     color: #00330e;
     background-color: #cefc97;
 }
@@ -82,12 +90,12 @@ p.active {
 
 .sidebar a {
     display: block;
-    font-weight:bold;
+    font-weight: bold;
     color: #ffffff;
-    text-align:center;
+    text-align: center;
     padding: 6px 8px;
-    text-decoration:none;
-    font-size:200%;
+    text-decoration: none;
+    font-size: 200%;
 }
 
 .sidebar ul {
@@ -114,26 +122,34 @@ p.active {
 }
 
 .col {
-    margin-top:60px;
-    margin-left:70px;
+    margin-top: 50px;
+    margin-left: 90px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    padding-right: 30px;
+    padding-left: 0px;
 }
 
 @media all and (max-width: 700px) {
     p.tips {
-        width:100%;
+        width: 100%;
     }
     p.warning {
-        width:100%;
+        width: 100%;
     }
     p.active {
-        width:100%;
+        width: 100%;
+    }
+    .col {
+        padding-right: 40px;
+        padding-left: 0px;
     }
 }
 
 @media all and (max-width: 450px) {
     .sidebar {
-        margin:0;
-        display:none;
+        margin: 0;
+        display: none;
     }
     .topnav li {
         float: none;
@@ -141,14 +157,14 @@ p.active {
     }
     .topnav li a.active {
         color: #000000;
-        font-weight:bold;
-        font-size:150%;
+        font-weight: bold;
+        font-size: 150%;
         padding: 8px;
     }
     .topnav li a:not(.active) {
-        display:none;
+        display: none;
     }
     .col {
-        margin-left:0px;
+        margin-left: 0px;
     }
 }
