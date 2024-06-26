@@ -3,9 +3,34 @@
 <head>
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="bye.css">
-<title>跳棋</title>
+<title>我们毕业啦！</title>
 </head>
 <body>
+<script>
+    function addRandomDots(numDots) {
+        const body = document.body;
+  
+    for (let i = 0; i < numDots; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+    
+    // 随机颜色
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        dot.style.backgroundColor = randomColor;
+    
+    // 随机位置
+        const x = Math.random() * (window.innerWidth - 30); // 减去圆点半径以确保完全可见
+        const y = Math.random() * (window.innerHeight + 375);
+        dot.style.left = x + 'px';
+        dot.style.top = y + 'px';
+    
+        body.appendChild(dot);
+  }
+}
+
+// 调用函数，生成x个随机圆点（可根据需要调整数量）
+addRandomDots(window.innerWidth * window.innerHeight / 3000);
+</script>
 
 <ul class="topnav">
     <li><a href="https://sodih3iw.github.io/">主页</a></li>
@@ -23,6 +48,8 @@
 
 <div class="sidebar">
     <ul>
+        <li><p>H</p></li>
+        <li><p>韩政轩</p></li>
         <li><p>G</p></li>
         <li><p>葛儒骏</p></li>
         <li><p>M</p></li>
@@ -39,12 +66,26 @@
 <table>
     <thead>
         <tr>
+            <th>韩政轩</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img src="img007.webp" alt="韩政轩" width="75"></td>
+            <td>天行健，君子以自强不息！把每次作业当成考试，我们在一中见！我们在十大名校见！<br/>Tel:13865616019</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+        <tr>
             <th>葛儒骏</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td><img src="img020.webp" alt="Pulpit rock" width=75></td>
+            <td><img src="img020.webp" alt="葛儒骏" width="75"></td>
             <td>那都努力学习，进入一中强基班再见吧。</td>
         </tr>
     </tbody>
@@ -58,7 +99,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="img014.webp" alt="Pulpit rock" width=75></td>
+            <td><img src="img014.webp" alt="马铭" width="75"></td>
             <td></td>
         </tr>
     </tbody>
@@ -72,7 +113,7 @@
     </thead>
     <tbody>
         <tr>
-            <td><img src="img045.webp" alt="Pulpit rock" width=75></td>
+            <td><img src="img045.webp" alt="张涵棋" width="75"></td>
             <td>作为宇宙无敌第一美女，毕业了也不会伤心，反正以后还会再见~~</td>
         </tr>
     </tbody>

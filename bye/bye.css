@@ -1,4 +1,12 @@
 
+.dot {
+    position: absolute;
+    border-radius: 50%;
+    /* 示例大小，可根据需要调整 */
+    width: 5px;
+    height: 5px;
+}
+
 .row:after {
     content: "";
     clear: both;
